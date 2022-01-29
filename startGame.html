@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start game !</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+
+    <header class="w3-container w3-teal">
+        <h1>Jeu Tour par Tour</h1>
+    </header>
+
+    <div class="w3-cell-row">
+        <div class="w3-container w3-light-gray w3-cell w3-mobile w3-cell-middle">
+            <h2>Terrain de jeu</h2>
+            <div id="map" class="w3-margin">
+                <table id="gameTable" class="w3-sand">
+                </table>
+            </div>
+        </div>
+        <div class="w3-container w3-green w3-cell w3-mobile">
+            <h2>Instructions</h2>
+            <ul class="w3-ul">
+                <li>Commandes</li>
+                <li>Difficulté</li>
+                <li class="w3-center">
+                    <button
+                        class="w3-button w3-orange w3-border w3-border-white w3-round-large w3-hover-khaki"
+                        id="startBtn">Recommencer la partie
+                    </button>
+                </li>
+                <li class="w3-center">
+                    <div
+                        class="w3-round-large w3-padding"
+                        id="turnInfo">
+                    </div>
+                </li>
+                <li class="w3-center">
+                    <button
+                        class="w3-button w3-deep-purple  w3-border w3-border-white w3-round-large w3-hover-khaki"
+                        id="nextBtn">Passer au tour suivant
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
+    </script>
+    <script src="src/startGame.js"></script>
+
+
+</body>
+
+</html>

@@ -6,3 +6,6 @@ td {
     height: 3rem;
     border: darkgrey 2px solid;
 }
+#panelCommandes {
+    display: none;
+}

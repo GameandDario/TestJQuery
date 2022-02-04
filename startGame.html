@@ -16,7 +16,7 @@
         <h1>Jeu Tour par Tour</h1>
     </header>
 
-    <div class="w3-cell-row">
+    <div class="w3-cell-row" id="phase1">
         <div class="w3-container w3-light-gray w3-cell w3-mobile w3-cell-middle">
             <h2>Terrain de jeu</h2>
             <div id="map" class="w3-margin">
@@ -58,7 +58,33 @@
                 </li>
             </ul>
         </div>
-
+    </div>
+    <div id="phase2">
+        <div class="w3-container w3-light-gray w3-cell w3-mobile w3-cell-middle">
+            <h2>Zone de combat</h2>
+            <div id="fightZone" class="w3-margin">
+            </div>
+            <div class="w3-container w3-green w3-cell w3-mobile">
+                <h2>Instructions Combat</h2>
+                <ul class="w3-ul">
+                    <li><span id="flipCommandesCombat">Commandes combat</span>
+                        <span id="panelCommandesCombat"><p><h3>C'est un combat sans quartier !</h3>
+                        Chaque doit éxecuter une action maximum par tour : frapper ou se défendre ! </p>
+                        <p><h3>Attaque</h3>
+                        Le joueur frappe avec son arme pour retirer des points à son adversaire.</p>
+                        <p><h3>Défense</h3>
+                        Le joueur réduit les dégats subits au prochain tour de moitié.</p>
+                    </span>
+                    </li>
+                    <li class="w3-center">
+                        <div
+                            class="w3-round-large w3-padding"
+                            id="fightInfo">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 
@@ -70,6 +96,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
     </script>
     <script src="src/models/ClassItems.js"></script>
+    <script src="src/utils/functions.js"></script>
     <script src="src/startGame.js"></script>
 
 

@@ -6,6 +6,9 @@ td {
     height: 3rem;
     border: darkgrey 2px solid;
 }
-#panelCommandes {
+#phase2 {
+    display: none;
+} 
+#panelCommandes, #CommandesCombat {
     display: none;
 }

@@ -10,12 +10,11 @@ $(function () {
       for (let ii = 0; ii < nbCols; ii++) {
         //2 Générer les cellules dans le tableau
         let td = "<td x=" + ii + " y=" + i + "></td>";
+        
         $("#gameTable").append(td);
       }
     }
-    let nbCells = $("td").length;
-    //console.log("nb cells", nbCells);
-
+  
     //3 Peupler les cellules du tableau
     //Test aléatoire : Pour chaque cellule, ajouter un état Accessible ou Inaccessible
     $("td").each(function (index, $this) {
@@ -26,53 +25,52 @@ $(function () {
         $($this).addClass("w3-lime").attr("accessible", true);
       } else {
         $($this).addClass("w3-dark-gray").attr("accessible", false);
+        $($this).acc = false;
+
       }
     });
 
-   
+    // alternative peuplement 
+    // Rendre toutes les cases accessibles. Puis créer les personnages parmi ces cases. /  vérifier positionnement / rendre ces cases non-accessibles
+    //Réavaluer cases accessibles :  créer 4 items  / vérifier positionnement / rendre ces cases non-accessibles. 
+  //Réavaluer cases accessibles : cases grises et vérifier positionnement . 
+
 
     let accessibles = $("[accessible = true]");
 
+    /* let perso3 = accessibles[Math.floor(Math.random() * accessibles.length)];
+    let player3 = $(perso3);
+    preparePlayer(player3, $(perso3), p3);
+    console.log('player3', player3); */
+
     //PERSO 1 : parmi les celllules accessibles en choisir une au hasard et la spécifiée comme personnage 1
-    let pers1 = accessibles[Math.floor(Math.random() * accessibles.length)];
-    $(pers1)
-      .removeClass("w3-lime")
-      .addClass("w3-pink")
-      .removeAttr("accessible")
-      .attr("name", "perso1")
-      //.attr("isP1Turn", true)
-      .attr("moves", 3);
-    let player1 = $(pers1);
+    let perso1 = accessibles[Math.floor(Math.random() * accessibles.length)];
+    let player1 = $(perso1);
+    preparePlayer(player1, $(perso1), p1);
 
-    player1.X = parseInt($(pers1).attr("x"));
-    player1.Y = parseInt($(pers1).attr("y"));
-    player1.name = $(pers1).attr("name");
-    player1.moves = parseInt($(pers1).attr("moves"));
-    player1.health = 10;
-    player1.weapon = { name: "lambda", strength: 10 };
-
-    //PERSO2
-    let pers2 = accessibles[Math.floor(Math.random() * accessibles.length)];
-    //Test position pers2
-    console.log("pers2", pers2);
-    $(pers2)
-      .removeClass("w3-lime")
-      .addClass("w3-blue")
-      .removeAttr("accessible")
-      .attr("name", "perso2")
-      .attr("moves", 3);
-
-    let player2 = $(pers2);
-    player2.X = parseInt($(pers2).attr("x"));
-    player2.Y = parseInt($(pers2).attr("y"));
-    //empêcher un positionnement trop proche de player1 et player 2 
-    checkPlayer2Pos(player1, player2);
-    console.log('player2', player2);
-    player2.name = $(pers2).attr("name");
-    player2.moves = parseInt($(pers2).attr("moves"));
-    player2.health = 10;
-    player2.weapon = { name: "lambda", strength: 10 };
-
+    let perso2 = accessibles[Math.floor(Math.random() * accessibles.length)];
+    let player2 = $(perso2);
+    preparePlayer(player2, $(perso2), p2); //(element, object, instance)
+    
+    console.log("perso1", perso1);
+    console.log("perso2", perso2);
+   
+    let diffX = player1.X - player2.X;
+    let diffY = player1.Y - player2.Y;
+    console.log(' diffX',  diffX);
+    console.log(' diffY',  diffY);
+    if(diffX == 0 || diffX == 1 || diffX == -1 && diffY == 0) {
+      console.log('positionX à changer', perso2);
+      $(perso2).removeAttr("name moves").removeClass("w3-blue").addClass("w3-lime");
+      console.log(perso2);
+       preparePlayer(player2, $(perso2), p2);
+    }
+    if(diffY == 0 || diffY == 1 || diffY == -1 && diffX == 0) {
+      console.log('position Y à changer ', perso2);
+      $(perso2).removeAttr("name moves").removeClass("w3-blue").addClass("w3-lime");
+      preparePlayer(player2, $(perso2), p2);
+    }
+   
     isPlayer1Turn(player1, player2);
 
     console.log("Generation player1", player1);
@@ -88,6 +86,7 @@ $(function () {
         //commencer tour suivant
       }
     }
+   
 
     // instancier 4 items armes via ClassItems.js
     let hache = accessibles[Math.floor(Math.random() * accessibles.length)];
@@ -111,38 +110,9 @@ $(function () {
     console.log("itemGrenade", itemGrenade);
     console.log("itemCobra", itemCobra); */
 
-    showInfo();
+    showInfo(player1, player2);
 
-    function showInfo() {
-      let turnInfoBox = $("#turnInfo");
-      if (player1.turn == true) {
-        turnInfoBox.removeClass("w3-blue").addClass("w3-pink");
-        turnInfoBox.html(
-          '<p>Tour de <span class="w3-large">' +
-            player1.name +
-            "</span></p><p>Nombre de mouvements restants : " +
-            player1.moves +
-            "</p><p>Arme équipée : " +
-            player1.weapon.name +
-            "</p><p>Force : " +
-            player1.weapon.strength +
-            "</p>"
-        );
-      } else if (player2.turn == true) {
-        turnInfoBox.removeClass("w3-pink").addClass("w3-blue");
-        turnInfoBox.html(
-          '<p>Tour de <span class="w3-large">' +
-            player2.name +
-            "</span></p><p>Nombre de mouvements restants : " +
-            player2.moves +
-            "</p><p>Arme équipée : " +
-            player2.weapon.name +
-            "</p><p>Force : " +
-            player2.weapon.strength +
-            "</p>"
-        );
-      }
-    }
+ 
 
     function changeTurn() {
       console.log("debut CT player1", player1);
@@ -157,14 +127,14 @@ $(function () {
         player2.turn = true;
         player2.moves = 3;
         player1.moves = 0;
-        showInfo();
+        showInfo(player1, player2);
       } else if (player2.moves < 3 && player2.turn == true) {
         console.log("P2 true");
         player2.turn = false;
         player1.turn = true;
         player1.moves = 3;
         player2.moves = 0;
-        showInfo();
+        showInfo(player1, player2);
       }
       //console.log("fin CT player1", player1);
       //console.log("fin CT player2", player2);
@@ -591,7 +561,7 @@ $(function () {
         newPower(player2, itemKunai);
         newPower(player2, itemGrenade);
         newPower(player2, itemCobra);
-        showInfo();
+        showInfo(player1, player2);
         checkFightPos(player1, player2);
         
 

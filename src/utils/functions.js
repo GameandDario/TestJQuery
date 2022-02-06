@@ -35,10 +35,48 @@ $("#flipCommandesCombat").click(function () {
     let diffY = playerA.Y - playerB.Y;
     console.log(' diffX',  diffX);
     console.log(' diffY',  diffY);
-    if ((diffX <= 1 && diffY == 0) ||  (diffX >= -1 && diffY == 0) ||( diffY <= 1 &&  diffX == 0) || (diffY >= -1 && diffX == 0)) {
+    if(diffX == 0 || diffX == 1 || diffX == -1 ) {
+      console.log('X position X à changer')
+    } 
+    
+
+    /* if ((diffX <= 1 && diffY == 0) ||  (diffX >= -1 && diffY == 0) ||( diffY <= 1 &&  diffX == 0) || (diffY >= -1 && diffX == 0)) {
+      console.log('position à changer')
       playerB.X += 2;
       playerB.Y += 2;
       //Todo vérifier que le positionnenement nouveau soit sur case avec class w3-lime
+    } */
+  }
+
+  function showInfo(player1, player2) {
+    let turnInfoBox = $("#turnInfo");
+    
+    if (player1.turn == true) {
+      turnInfoBox.removeClass("w3-blue").addClass("w3-pink");
+      turnInfoBox.html(
+        '<p>Tour de <span class="w3-large">' +
+          player1.name +
+          '</span> Points de vie:' + player1.health + ' </p><p>Nombre de mouvements restants : ' +
+          player1.moves +
+          '</p><p>Arme équipée : ' +
+          player1.weapon.name +
+          '</p><p>Force : ' +
+          player1.weapon.strength +
+          '</p>'
+      );
+    } else if (player2.turn == true) {
+      turnInfoBox.removeClass("w3-pink").addClass("w3-blue");
+      turnInfoBox.html(
+        '<p>Tour de <span class="w3-large">' +
+          player2.name +
+          '</span> Points de vie:' + player2.health + ' </p><p>Nombre de mouvements restants : ' +
+          player2.moves +
+          '</p><p>Arme équipée : ' +
+          player2.weapon.name +
+          '</p><p>Force : ' +
+          player2.weapon.strength +
+          '</p>'
+      );
     }
   }
   

@@ -9,7 +9,7 @@ td {
 #phase2 {
     display: none;
 } 
-#panelCommandes {
+#panelCommandes, #panelCommandesCombat {
     display: none;
 }
 .player-img {

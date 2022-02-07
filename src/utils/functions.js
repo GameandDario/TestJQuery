@@ -3,9 +3,9 @@ $("#flipCommandes").click(function () {
     $("#panelCommandes").slideToggle("slow");
   });
 
-/* $("#flipCommandesCombat").click(function () {
+$("#flipCommandesCombat").click(function () {
     $("#panelCommandesCombat").slideToggle("slow");
-  }); */
+  });
 
  // Séléctionner aléatoirement le premier joueur
  function isPlayer1Turn(playerA, playerB) {
@@ -103,29 +103,6 @@ $("#flipCommandes").click(function () {
     console.log('mouvements bloqués');
     playerA.moves = 0;
     playerB.moves = 0;
-   /*  $(document).keydown(function (e) {
-      switch (e.which) {
-        case 37:
-          player.X += 0;
-          player.moves = 0;
-          break;
-
-        case 38:
-          player.Y += 0;
-          player.moves = 0;
-          break;
-
-        case 39:
-          player.X += 0;
-          player.moves = 0;
-          break;
-
-        case 40:
-          player.Y += 0;
-          player.moves = 0;
-          break;
-      }
-    }); */
   }
 
   function startFight(playerA, playerB) {
@@ -133,7 +110,4 @@ $("#flipCommandes").click(function () {
     $('#phase1').css('display', 'none');
     $('#phase2').css('display', 'block');
     fight(playerA, playerB);
-
-
-
   }

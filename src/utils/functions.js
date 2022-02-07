@@ -3,9 +3,9 @@ $("#flipCommandes").click(function () {
     $("#panelCommandes").slideToggle("slow");
   });
 
-$("#flipCommandesCombat").click(function () {
+/* $("#flipCommandesCombat").click(function () {
     $("#panelCommandesCombat").slideToggle("slow");
-  });
+  }); */
 
  // Séléctionner aléatoirement le premier joueur
  function isPlayer1Turn(playerA, playerB) {
@@ -132,6 +132,8 @@ $("#flipCommandesCombat").click(function () {
     console.log('player1 : ' + playerA.name + playerA.turn + ' player2 : ' + playerB.name + playerB.turn );
     $('#phase1').css('display', 'none');
     $('#phase2').css('display', 'block');
+    fight(playerA, playerB);
+
 
 
   }

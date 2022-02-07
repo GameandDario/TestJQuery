@@ -18,9 +18,10 @@ function preparePlayer(element, object, instance) {
     element.strength = instance.weapon.strength;
     element.health = instance.health;
     element.weapon = instance.weapon;
+    element.src= instance.src;
 }
-const p1= new Perso("Pink1","w3-pink", 3, 10, { name: "lambda", strength: 10 }, "pink1.jpg");
-const p2= new Perso("Blue2","w3-blue", 3,10, { name: "lambda", strength: 10 }, "blue2.jpg");
+const p1= new Perso("Pink1","w3-pink", 3, 10, { name: "Arme lambda", strength: 10 }, "src/img/guy1.png");
+const p2= new Perso("Blue2","w3-blue", 3,10, { name: "Arme lambda", strength: 10 }, "src/img/portraitCaptain.png");
 //test const p3 = new Perso("Toto", "w3-white", 3, { name: "TTTT", strength: 15 }, "toto.jpg");
 // Version function 
 

@@ -9,6 +9,14 @@ td {
 #phase2 {
     display: none;
 } 
-#panelCommandes, #CommandesCombat {
+#panelCommandes {
     display: none;
 }
+.player-img {
+    width: 14rem;
+    height: 16rem;
+    object-fit: cover;
+}
+/* #fightZone {
+
+} */

@@ -86,7 +86,7 @@ $(function () {
         //commencer tour suivant
       }
     }
-   
+  
 
     // instancier 4 items armes via ClassItems.js
     let hache = accessibles[Math.floor(Math.random() * accessibles.length)];
@@ -111,9 +111,7 @@ $(function () {
     console.log("itemCobra", itemCobra); */
 
     showInfo(player1, player2);
-
  
-
     function changeTurn() {
       console.log("debut CT player1", player1);
       console.log("debut CT player2", player2);

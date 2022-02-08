@@ -56,7 +56,7 @@ $("#flipCommandesCombat").click(function () {
       turnInfoBox.html(
         '<p>Tour de <span class="w3-large">' +
           player1.name +
-          '</span> Points de vie:' + player1.health + ' </p><p>Nombre de mouvements restants : ' +
+          '</span> Points de vie: ' + player1.health + ' </p><p>Nombre de mouvements restants : ' +
           player1.moves +
           '</p><p>Arme équipée : ' +
           player1.weapon.name +
@@ -69,7 +69,7 @@ $("#flipCommandesCombat").click(function () {
       turnInfoBox.html(
         '<p>Tour de <span class="w3-large">' +
           player2.name +
-          '</span> Points de vie:' + player2.health + ' </p><p>Nombre de mouvements restants : ' +
+          '</span> Points de vie: ' + player2.health + ' </p><p>Nombre de mouvements restants : ' +
           player2.moves +
           '</p><p>Arme équipée : ' +
           player2.weapon.name +

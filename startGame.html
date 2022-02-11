@@ -8,7 +8,7 @@
     <title>start game !</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/968980086e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/style.css">
 </head>
 
@@ -29,7 +29,12 @@
         <div class="w3-container w3-green w3-cell w3-mobile">
             <h2>Instructions</h2>
             <ul class="w3-ul">
-                <li><span id="flipCommandes">Commandes</span>
+                <li><i class="fa fa-user"></i></li>
+                <i class="fa-solid fa-user"></i><i class="fa-solid fa-user-ninja fa-2x"></i>
+                <i class="fa-solid fa-user"></i>
+                <li><i class="fas fa-raygun"></i></li>
+                <li><i class="fa-duotone fa-raygun"></i></li>
+                <li><span id="flipCommandes">Commandes <i class="fa-solid fa-sparkles"></i></span>
                     <span id="panelCommandes">
                         <p>
                         <h3>Déplacer le joueur avec les flèches du clavier.</h3>
@@ -42,11 +47,11 @@
                         équiment plus redoutable.</p>
                         <p>
                         <h3>Combattre</h3>
-                        Chaque joueur a 10 point de vie. Passer sur une case adjecente entame un combat à mort tour par
-                        tour. Chaque joueur a le choix entre deux actions : se défendre (limiter les dégats adverse par
-                        deux) ou attaquer (ajouter à l'adversaire autant de dégats que l'attaquant possède de points de
-                        force).
-                        Le combat se poursuit jusqu'à ce qu'un joueur décède.</p>
+                        Chaque joueur a 100 point de vie. Passer sur une case adjecente entame un combat à mort en tour par
+                        tour. En combat, chaque joueur a le choix entre deux actions : se défendre (limiter les dégats adverse par
+                        deux) ou attaquer (ajouter à l'adversaire autant de dégats que l'on possède de points de
+                        force par l'arme portée).
+                        Le combat se poursuit jusqu'à ce qu'un joueur perde tous ses points de vie.</p>
                     </span>
                 </li>
                 <li>Difficulté</li>
@@ -104,7 +109,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
     </script>
-
+    
     <script src="src/models/classPersos.js"></script>
     <script src="src/models/ClassItems.js"></script>
     <script src="src/utils/functions.js"></script>

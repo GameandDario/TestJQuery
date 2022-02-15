@@ -9,14 +9,19 @@ td {
 #phase2 {
     display: none;
 } 
-#panelCommandes, #panelCommandesCombat {
+.flipPanel {
     display: none;
+    width: 14rem;
 }
 .player-img {
     width: 14rem;
     height: 16rem;
     object-fit: cover;
 }
-/* #fightZone {
 
-} */
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

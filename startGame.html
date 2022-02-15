@@ -31,11 +31,9 @@
             <ul class="w3-ul">
                 <li><i class="fa fa-user"></i></li>
                 <i class="fa-solid fa-user"></i><i class="fa-solid fa-user-ninja fa-2x"></i>
-                <i class="fa-solid fa-user"></i>
-                <li><i class="fas fa-raygun"></i></li>
-                <li><i class="fa-duotone fa-raygun"></i></li>
-                <li><span id="flipCommandes">Commandes <i class="fa-solid fa-sparkles"></i></span>
-                    <span id="panelCommandes">
+
+                <li><span class="flipBtn">Commandes <button class="flipIcon w3-button w3-circle w3-teal">+</button></span>
+                    <span class="flipPanel">
                         <p>
                         <h3>Déplacer le joueur avec les flèches du clavier.</h3>
                         Chaque joueur peut éxecuter jusqu'à 3 mouvements maximun par tour. Le joueur en cours peut
@@ -47,8 +45,10 @@
                         équiment plus redoutable.</p>
                         <p>
                         <h3>Combattre</h3>
-                        Chaque joueur a 100 point de vie. Passer sur une case adjecente entame un combat à mort en tour par
-                        tour. En combat, chaque joueur a le choix entre deux actions : se défendre (limiter les dégats adverse par
+                        Chaque joueur a 100 point de vie. Passer sur une case adjecente entame un combat à mort en tour
+                        par
+                        tour. En combat, chaque joueur a le choix entre deux actions : se défendre (limiter les dégats
+                        adverse par
                         deux) ou attaquer (ajouter à l'adversaire autant de dégats que l'on possède de points de
                         force par l'arme portée).
                         Le combat se poursuit jusqu'à ce qu'un joueur perde tous ses points de vie.</p>
@@ -71,45 +71,78 @@
                 </li>
             </ul>
         </div>
+        <!-- Weapon Modal -->
+        <div id="weaponModal" class="w3-hide w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container">
+                    <span class="close w3-button w3-display-topright">&times;</span>
+                    <h2>Nouvelle arme !</h2>
+                </header>
+                <div class="w3-container w3-padding w3-margin w3-round" id="modalweaponText">
+                    <p>Some text..</p>
+                    <p>Some text..</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="w3-row w3-flat-wet-asphalt" id="phase2">
-            <div class="w3-container w3-red w3-twothird">
-                <h2 id="fightZone">Zone de combat</h2>
-            </div>
-            <div class="w3-container w3-flat-wet-asphalt w3-third">
-                <h2>Instructions Combat</h2>
-                <ul class="w3-ul">
-                    <li><span id="flipCommandesCombat">Commandes combat</span>
-                        <span id="panelCommandesCombat">
-                            <p>
-                            <h3>C'est un combat sans quartier !</h3>
-                            Chaque joueur doit éxecuter une action maximum par tour : frapper ou se défendre ! </p>
-                            <p>
-                            <h3>Attaque</h3>
-                            Le joueur frappe et retire à son adversaire autant de points de vie que la puissance de son arme permet.</p>
-                            <p>
-                            <h3>Défense</h3>
-                            Le joueur réduit de moitié les dégats subits au prochain tour.</p>
-                        </span>
-                    </li>
-                    <li class="w3-center">
-                        <div class="w3-round-large w3-padding" id="fightInfo">
+        <div class="w3-container w3-red w3-twothird">
+            <h2 id="fightZone">Zone de combat</h2>
+        </div>
+        <div class="w3-container w3-flat-wet-asphalt w3-third">
+            <h2>Instructions Combat</h2>
+            <ul class="w3-ul">
+                <li><span class="flipBtn">Commandes combat</span>
+                    <span class="flipPanel">
+                        <p>
+                        <h3>C'est un combat sans quartier !</h3>
+                        Chaque joueur doit éxecuter une action maximum par tour : frapper ou se défendre ! </p>
+                        <p>
+                        <h3>Attaque</h3>
+                        Le joueur frappe et retire à son adversaire autant de points de vie que la puissance de son arme
+                        permet.</p>
+                        <p>
+                        <h3>Défense</h3>
+                        Le joueur réduit de moitié les dégats subits au prochain tour.</p>
+                    </span>
+                </li>
+                <li class="w3-center">
+                    <div class="w3-round-large w3-padding" id="fightInfo">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Result Modal -->
+        <div id="resultModal" class="w3-hide w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container">
+                    <span class="close w3-button w3-display-topright">&times;</span>
+                    <h2>Le combat est terminé !</h2>
+                </header>
+                <div class="w3-container w3-padding w3-margin w3-round" id="modalText">
+                    <p>Some text..</p>
+                    <p>Some text..</p>
+                </div>
+                <footer class="w3-container w3-flat-pomegranate">
+                    <div class="w3-center">
+                        <div class="w3-bar w3-margin">
+                          <button id="restartGame" class="w3-button w3-white w3-round-large">Recommencer la partie</button>
+                          <button class="w3-button w3-teal w3-round-large">Recommencer en Difficulté +</button>
                         </div>
-                    </li>
-                </ul>
+                        </div> 
+                </footer>
             </div>
+        </div>
     </div>
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js">
     </script>
-    
+
     <script src="src/models/classPersos.js"></script>
     <script src="src/models/ClassItems.js"></script>
     <script src="src/utils/functions.js"></script>

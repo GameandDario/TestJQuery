@@ -22,8 +22,8 @@ function preparePlayer(element, object, instance) {
     element.onDefend = instance.onDefend;
     element.src= instance.src;
 }
-const p1= new Perso("Pink1","w3-pink", 3, 100, { name: "Arme lambda", strength: 10 }, false, "src/img/guy1.png");
-const p2= new Perso("Blue2","w3-blue", 3,100, { name: "Arme lambda", strength: 10 }, false, "src/img/portraitCaptain.png");
+const p1= new Perso("Pink1","w3-pink", 3, 100, { name: "Arme lambda", strength: 10, src:"src/img/icons8-saber-weapon-25.png" }, false, "src/img/guy1.png");
+const p2= new Perso("Blue2","w3-blue", 3, 100, { name: "Arme lambda", strength: 10, src:"src/img/icons8-saber-weapon-25.png" }, false, "src/img/portraitCaptain.png");
 //test const p3 = new Perso("Toto", "w3-white", 3, { name: "TTTT", strength: 15 }, "toto.jpg");
 // Version function 
 

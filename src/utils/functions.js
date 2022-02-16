@@ -25,79 +25,76 @@ function isPlayer1Turn(playerA, playerB) {
   }
 }
 //
-function openWeaponModal() {
+function openWeaponModal(player) {
+  /* alert(
+    player.name +
+      " gagne " +
+      player.weapon.name +
+      " avec " +
+      player.weapon.strength +
+      " points de force."
+  ); */
+
+  let contentHtml =
+    "<p class='" +
+    player.playerClass +
+    "'>" +
+    player.name +
+    " gagne " +
+    player.weapon.name +
+    " avec " +
+    player.weapon.strength +
+    " points de force.</p>";
+  console.log("contentHtml", contentHtml);
   let modal = $("#weaponModal");
+  let content = $("#modalweaponText");
+  content.html(contentHtml);
   let closeBtn = $(".close");
   closeBtn.click(function () {
     modal.removeClass("w3-show").addClass("w3-hide");
   });
-
   modal.removeClass("w3-hide").addClass("w3-show");
+
+  setTimeout(() => {
+    modal.removeClass("w3-show").addClass("w3-hide");
+  }, 2000);
 }
 //Equiper un joueur d'une nouvelle arme
 function newPower(player, item) {
-  if (player.turn == true && player.moves >= 0 && player.X == item.X && player.Y == item.Y && item.available == true) {
+  if (
+    player.turn == true &&
+    player.moves >= 0 &&
+    player.X == item.X &&
+    player.Y == item.Y &&
+    item.available == true
+  ) {
     //1° stocker l'arme portée par le joueur
-    let leftItem = {}; 
+    let leftItem = {};
     leftItem.name = player.weapon.name;
     leftItem.strength = player.weapon.strength;
     leftItem.src = player.weapon.src;
     console.log("leftItem", leftItem);
-    item.attr("class","w3-yellow");
+    item.attr("class", "w3-yellow w3-container w3-center"); //TODO ? Remove attr("w3-lime") ?
     //2° remplacer les valeurs de player.weapon  par item
     player.weapon.name = item.name;
     player.weapon.strength = item.strength;
     player.weapon.src = item.src;
 
-    
     //3° remplacer les valeurs de item par leftItem
     item.src = leftItem.src;
     item.name = leftItem.name;
     item.strength = leftItem.strength;
     //item.attr("src",leftItem.src);
-    console.log('item', item);
+    console.log("item", item);
     item.html(
-      "<img class='w3-badge w3-white w3-round' src= '" + leftItem.src + "'>"
+      "<img class='w3-badge w3-white w3-round' src= '" + leftItem.src + "'>" //TODO ? check class as in class Item ?
     );
     //item.attr("class","w3-yellow");
     console.log("item", item);
     console.log("leftItem", leftItem);
     console.log("player.weapon", player.weapon);
 
-   /*  //console.log("item", item.attr("class"));
-    console.log("leftItem", leftItem);
-
-    //modifier l'arme du joueur qui prend la valeur de item
-    player.weapon = item;
-    console.log("player.weapon", player.weapon);
-    console.log("item", item);
-    item.attr({
-      name: leftItem.name,
-      strength: leftItem.strength,
-      src: leftItem.src,
-      class: "w3-gray"
-    });
-    
-    item.html(
-      "<img class='w3-badge w3-white w3-round' src= '" + leftItem.src + "'>"
-    );
-
-    $("#modalWeaponText").append(
-      '<p class="w3-text-white"> TEST' +
-        player.name +
-        " gagne " +
-        player.weapon.name +
-        " avec " +
-        player.weapon.strength +
-        " points de force.</p>"
-    );
-    openWeaponModal();
-    leftItem = ''; */
-    //alert(player.name + " gagne " + player.weapon.name + " avec " + player.weapon.strength + " points de force.");
-    //item.available = false;
-    //item prend la valeur de leftItem
-    //item = leftItem;
-    //console.log("item", item.src);
+    openWeaponModal(player);
   }
 }
 //vérifier la position de player2 par rapport à player 1 lors de sa génération.

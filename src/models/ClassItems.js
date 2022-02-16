@@ -23,7 +23,7 @@ class Item {
   }
 }
 function prepareItem(element, object, instance) {
-  element.removeClass("w3-lime").addClass("w3-brown").removeAttr("accessible").html("<img class='w3-badge w3-white w3-round' src= '" + instance.src + "'>");
+  element.removeClass("w3-lime").addClass("w3-brown w3-container w3-center").removeAttr("accessible").html("<img class='itemInChest w3-amber w3-round' src= '" + instance.src + "'>");
   element.X = parseInt(object.attr("x"));
   element.Y = parseInt(object.attr("y"));
   element.name = instance.name;

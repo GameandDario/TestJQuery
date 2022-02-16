@@ -25,3 +25,7 @@ td {
     text-decoration: none;
     cursor: pointer;
   }
+
+.itemInChest {
+    padding: 2px 4px;
+}
